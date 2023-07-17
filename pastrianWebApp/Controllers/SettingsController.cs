@@ -1,4 +1,5 @@
-﻿using pastrianWebApp.Services;
+﻿using pastrianWebApp.Models;
+using pastrianWebApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,13 @@ namespace pastrianWebApp.Controllers
   
     public class SettingsController : Controller
     {
-        private readonly webService webService= new webService();
+       
+        private  webServiceUser _webService = new webServiceUser();
 
         [HttpGet]
         public ActionResult Settings()
         {
-            return View(webService.Get());
+            return View(_webService.Get());
         }
     }
 }

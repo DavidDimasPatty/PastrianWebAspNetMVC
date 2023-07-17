@@ -6,17 +6,27 @@ using System.Web;
 
 namespace pastrianWebApp.Models
 {
-    public class webStoreDatabaseSettings 
+    public class webStoreDatabaseSettings
     {
         public MongoClient Client;
         public IMongoDatabase Db;
-    
-        public webStoreDatabaseSettings(string url, string database)
+        public string ConnectionString { get; set; } = String.Empty;
+        public string DatabaseName { get; set; } = String.Empty;
+
+
+        public webStoreDatabaseSettings(string connectionString, string databaseName)
         {
-            this.Client = new MongoClient(url);
+            this.ConnectionString = connectionString;
+            this.DatabaseName = databaseName;
+            this.Client = new MongoClient(connectionString);
             //if the database is not exist, creates the database
-            this.Db = this.Client.GetDatabase(database);
+            this.Db = this.Client.GetDatabase(databaseName);
+
         }
 
+        
     }
+
+    
+
 }

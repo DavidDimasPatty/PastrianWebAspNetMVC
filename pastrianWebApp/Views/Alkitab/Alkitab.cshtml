@@ -1,0 +1,45 @@
+﻿@model IEnumerable<pastrianWebApp.Models.alkitab>
+@{
+    ViewBag.Title = "Alkitab";
+}
+
+<main aria-labelledby="title">
+    <h2 id="title">@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+
+    <p>Settings.</p>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.chapter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ayat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isi)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.chapter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ayat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isi)
+                </td>
+
+            </tr>
+
+        }
+
+    </table>
+</main>
